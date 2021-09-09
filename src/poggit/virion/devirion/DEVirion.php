@@ -175,7 +175,7 @@ class DEVirion extends PluginBase{
 					$virionApi = array_pad(explode("-", $version), 2, ""); //0 = version, 1 = suffix (optional)
 					$serverApi = array_pad(explode("-", $this->getServer()->getApiVersion()), 2, "");
 
-					if(strtoupper($virionApi[1]) !== strtoupper($serverApi[1])){ //Different release phase (alpha vs. beta) or phase build (alpha.1 vs alpha.2)
+					if($virionApi[1] !== "" && strtoupper($virionApi[1]) !== strtoupper($serverApi[1])){ //Different release phase (alpha vs. beta) or phase build (alpha.1 vs alpha.2)
 						continue;
 					}
 
